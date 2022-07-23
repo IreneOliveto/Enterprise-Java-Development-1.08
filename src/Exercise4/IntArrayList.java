@@ -1,33 +1,25 @@
 package Exercise4;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class IntArrayList implements IntList {
-
     int numberElements = 0;
     int size = 10;
-    ArrayList<Integer> arrayList = new ArrayList<Integer>(size);
-
-    //constructor
-    public IntArrayList() {
-    }
+    int[] arrayList = new int[size];
 
     public void add(int number) {
-        if (numberElements < size) {
-            arrayList.add(number);
+        if(numberElements < size) {
+            arrayList[numberElements] = number;
             numberElements++;
         } else {
             size = size + ( size / 2);
-            ArrayList<Integer> temporal = new ArrayList<Integer>(size);
-            for (int i = 0; i < arrayList.size(); i++ ) {
-                temporal.add(i, arrayList.get(i));
+            int[] temporal = new int[size];
+            for (int i = 0; i < arrayList.length; i++ ) {
+                temporal[i]= arrayList[i];
             }
-            arrayList = temporal;
         }
+
     }
 
     public int get(int id) {
-        return arrayList.get(id);
+        return arrayList[id];
     }
 }
